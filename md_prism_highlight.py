@@ -55,7 +55,8 @@ def apply_markdown_extension(pelicanobj, config):
 
     # Instantiate Markdown extension and append it to the current extensions
     try:
-        pelicanobj.settings['MD_EXTENSIONS'].append(PrismFencedCodeExtension(config))
+        # pelicanobj.settings['MD_EXTENSIONS'].append(PrismFencedCodeExtension(config))
+        pelicanobj.settings['MARKDOWN'].setdefault('extensions', []).append(PrismFencedCodeExtension(config))
     except:
         sys.excepthook(*sys.exc_info())
         sys.stderr.write("\nError - md-prism-highlight failed to load\n")
